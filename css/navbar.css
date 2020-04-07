@@ -1,0 +1,80 @@
+/*      ESTILOS PROPIOS PARA DETALLES DEL NAVBAR
+***************************************************
+     NO CONTIENE TODAS LAS CLASES DEL NAVBAR 
+****************************************************/
+
+.navbar-logo{
+    height: 40px;
+}
+
+
+.btn-navbar-login{
+    color: #ffffff;
+    padding: 10px 40px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+@media (min-width: 992px) {
+    .btn-navbar-login{ /* Esto es básicamente para que solo tenga un margen al estar la web en pantalla de monitor y no pegarse tanto al navbar */
+        margin-left: 30px;
+    }
+}
+  
+.btn-navbar-login:hover{
+    background-color: rgba(255, 255, 255, 1);
+    color: #ea2f82; 
+}
+
+
+ 
+/********* MENU DESPLEGABLE ***********/
+@media (min-width: 992px) {
+    .animate {
+        animation-duration: 0.3s;
+        -webkit-animation-duration: 0.3s;
+        animation-fill-mode: both;
+        -webkit-animation-fill-mode: both;
+    }
+}
+  
+  @keyframes slideIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+    100% {
+        transform:translateY(0rem);
+        opacity: 1;
+    }
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+  }
+  
+  @-webkit-keyframes slideIn {
+    0% {
+      -webkit-transform: transform;
+      -webkit-opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      -webkit-opacity: 1;
+    }
+    0% {
+      -webkit-transform: translateY(1rem);
+      -webkit-opacity: 0;
+    }
+  }
+  
+  .slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+  }
+  
