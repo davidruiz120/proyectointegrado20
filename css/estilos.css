@@ -2,17 +2,6 @@
 ****************************************************/
 
 /* //////////////////////////// INDEX ////////////////////////////////////////////////////////////// */
-/* ===== CLASES PARA LA SECCIÓN NOTICIAS DEL INDEX ===== */
-.index-noticias-padding {
-    padding-top: 250px;
-    padding-bottom: 250px;
-}
-
-.index-noticias-bg {
-    background: url('../img/wallpaper11.png') no-repeat scroll center bottom / cover !important;
-}
-/* ===== FIN ===== CLASES PARA LA SECCIÓN NOTICIAS DEL INDEX ===== */
-
 /* ===== CLASES PARA LA SECCIÓN CASA DE SUBASTAS DEL INDEX ===== */
 .index-casasubastas-padding {
     padding-top: 250px;
