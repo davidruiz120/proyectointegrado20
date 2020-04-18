@@ -11,7 +11,7 @@
     <link href="css/perfil.css" rel="stylesheet">
 
   <!-- Php encargado de actualizar los datos del usuario en la base de datos -->
-  <?php include("db/actualizarPerfilUsuario.php"); ?>
+  <?php include("db/pActualizarPerfilUsuario.php"); ?>
 
 </head>
 
@@ -30,6 +30,8 @@
 <!-- Si hay un usuario logeado -->
 <?php if(isset($_SESSION["idUser"]) && isset($_SESSION["nombreusuarioUser"]) && isset($_SESSION["rolUser"])) { ?>
     
+    <!-- ===== PERFIL PERSONAL ===== -->
+
     <!-- Título principal -->
     <h1 class="font-weight-light">Perfil personal</h1>
     <div class="space-30"></div>
@@ -70,6 +72,11 @@
         <div class="row">
           <div class="col-lg-3"><b>Segundo apellido</b></div>
           <div class="col-lg-3"><?php echo $_SESSION["apellido2User"]; ?></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-3"><b>Créditos</b></div>
+          <div class="col-lg-3"><i class="fas fa-coins"></i> <?php echo $_SESSION["creditosUser"]; ?></div>
         </div>
         <hr>
         
@@ -114,6 +121,94 @@
     </div>
     </div>
     
+
+    <!-- ===== VEHÍCULOS PERSONALES ===== -->
+
+    <!-- Container principal -->
+    <div class="container margen-superior-100">
+    <div class="row">
+
+    <!-- Columna en donde se verán los vehículos personales -->
+    <div class="col-md-8 border-right">
+
+      <h3 class="text-center">Vehículos personales</h3>
+      <hr class="divider my-4">
+
+      <div id="panelVehiculosPersonales">
+
+        <!-- Los vehículos personales se rellenan en el js/perfil.js -->
+
+        <!--<div class="border-gradient-effect">
+          <div class="text-right divbtncerrar">
+            <button id="+idBorrar+" class='btn btncerrar' title='Borrar vehículo personal' data-toggle='tooltip'><i class='fas fa-times'></i></button>
+          </div>
+          <h4 class="font-weight-light">2007 <b>Alfa Romeo</b> 8C Competizione | A 777</h4>
+        </div>
+        <br>-->
+
+      </div>
+
+    </div> <!-- Fin/ Div Columna en donde se verán los vehículos personales -->
+
+    <!-- Columna Añadir Vehículo Personal -->
+    <div class="col-md-4">
+
+      <hr>
+      <h4 class="font-weight-light">Añadir vehículo</h4>
+      <hr>
+
+      <form action="../db/pAnyadirVehiculoPersonal.php" method="post" class="form-signin">
+              
+        <div class="form-label-group"> <!-- Marca -->
+            <label for="inputMarca">Marca</label>
+            <select name="inputMarca" id="inputMarca" class="form-control" placeholder="Marca" required>
+                
+                <!-- Archivo encarcado de mostrar las diferentes marcas en el select -->
+                <?php include("db/pListarMarcasCoches.php") ?>
+
+            </select>
+        </div>
+    
+        <br>
+
+        <div class="form-label-group"> <!-- Modelo -->
+            <label for="inputModelo">Modelo</label>
+            <select name="inputModelo" id="inputModelo" class="form-control" placeholder="Modelo" required>
+                
+              <!-- El archivo js/perfil.js es el encargado de rellenar ese select -->
+
+            </select>
+        </div>
+
+        <br>
+        
+        <div class="form-label-group"> <!-- Año -->
+            <label for="inputAnyo">Año</label>
+            <input type="text" name="inputAnyo" id="inputAnyo" class="form-control" readonly>
+        </div>
+
+        <br>
+        
+        <div class="form-label-group"> <!-- Clase -->
+            <label for="inputClase">Clase</label>
+            <input type="text" name="inputClase" id="inputClase" class="form-control" readonly>
+        </div>
+
+        <!-- Campo oculto para enviar el id del vehículo, que se rellena en el archivo js/perfil.js -->
+        <input type="text" name="inputIdCoche" id="inputIdCoche" hidden>
+
+        <!-- Campo oculto para enviar el id del usuario que agrega el vehículo -->
+        <input type="hidden" name="inputIdUsuarioLogin" id="inputIdUsuarioLogin" value="<?php echo $_SESSION["idUser"]; ?>">
+
+        <hr>
+        <button class="btn btn-sm btn-primary btn-block text-uppercase" id="btnAnyadirVehiculoPersonal" name="btnAnyadirVehiculoPersonal" type="submit" disabled><i class="fas fa-car"></i> Añadir vehículo</button>
+      </form>
+
+    </div>
+
+    </div>
+    </div>
+
     
 
 <?php } else { ?> <!-- Si no estás logueado, mostrará una advertencia para iniciar sesión -->
@@ -142,6 +237,9 @@
   
   <!-- JS del final del body -->
   <?php include("includes/body_contents.php");?>
+
+  <!-- Script para múltiples funciones del Perfil -->
+  <script src="js/perfil.js"></script>
 
 </body>
 

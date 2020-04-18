@@ -19,8 +19,8 @@ if(isset($_REQUEST["btnregistrarse"])){
     $apellido1 = $_POST["inputApellido1"];
     $apellido2 = $_POST["inputApellido2"];
 
-    $sql = "INSERT INTO usuario (nombreusuario, pass, nombre, email, apellido1, apellido2, rol)
-    VALUES ('$nombreusuario', '$password', '$nombre', '$email', '$apellido1', '$apellido2', 0)";
+    $sql = "INSERT INTO usuario (nombreusuario, pass, nombre, email, apellido1, apellido2, rol, creditos)
+    VALUES ('$nombreusuario', '$password', '$nombre', '$email', '$apellido1', '$apellido2', 0, 150000)";
     $con->query($sql);
     
     // Si no ha ocurrido un error, redirigirá al login, si no

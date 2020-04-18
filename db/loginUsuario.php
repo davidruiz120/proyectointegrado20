@@ -21,7 +21,7 @@ if(isset($_REQUEST["btnlogin"])){
     $password = $_POST["inputPassword"];
     $password = md5($password);
 
-    $sql = "SELECT id, nombreusuario, nombre, email, apellido1, apellido2, rol FROM usuario
+    $sql = "SELECT id, nombreusuario, nombre, email, apellido1, apellido2, rol, creditos FROM usuario
         WHERE nombreusuario='$nombreusuario' && pass='$password'";
     $resultado = $con->query($sql);
     
@@ -37,6 +37,7 @@ if(isset($_REQUEST["btnlogin"])){
         $_SESSION["apellido1User"] = $fila->apellido1;
         $_SESSION["apellido2User"] = $fila->apellido2;
         $_SESSION["rolUser"] = $fila->rol;
+        $_SESSION["creditosUser"] = $fila->creditos;
 
         $con->close();
         header("Location: ".$pagActual);

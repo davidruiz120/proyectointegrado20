@@ -14,6 +14,61 @@
 /* ===== FIN ===== CLASES PARA LA SECCIÓN CASA DE SUBASTAS DEL INDEX ===== */
 
 
+
+/* //////////////////////////// CASA DE SUBASTAS ////////////////////////////////////////////////////////////// */
+
+.border-right { /* Pequeño borde para aclarar la separación de las dos columnas de la página */
+    border-right: 1px solid black;
+}
+
+.border-gradient {
+    border-left: 10px solid #ff692d;
+    border-right: 10px solid #ea2f82;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-position: 0 0, 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 10px;
+    background-image: linear-gradient(to right, #ff692d 0%, #ea2f82 100%), linear-gradient(to right, #ff692d 0%, #ea2f82 100%);
+}
+
+.border-gradient-effect {
+    padding: 40px;
+    border-left: 10px solid #ff692d;
+    border-right: 10px solid #ea2f82;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-position: 0 0, 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 10px;
+    background-image: linear-gradient(to right, #ff692d 0%, #ea2f82 100%), linear-gradient(to right, #ff692d 0%, #ea2f82 100%);
+}
+
+.border-gradient-effect:hover{
+    transform: scale(1.03);
+    transition: 0.2s ease;
+}
+
+
+
+/* ===== CLASES PARA QUE UN BOTÓN TENGA UN ESTILO PARA CERRAR ===== */
+.btncerrar{
+    background-color: red;
+    color: white;
+    border-radius: 100%;
+    border-color: black;
+}
+
+.divbtncerrar{
+    position: relative;
+    bottom: 40px;
+    left: 55px;
+}
+
+
+
+
+
 /* ===== CLASES DE ESPACIADO ===== */
 .space-10 {
     height: 10px;

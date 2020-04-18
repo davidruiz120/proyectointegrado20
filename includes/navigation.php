@@ -67,6 +67,10 @@
         <a class="btn btn-navbar-login dropdown-toggle js-scroll-trigger" href="" id="navbarDropdown" role="button" data-toggle="dropdown"><?php echo $_SESSION["nombreusuarioUser"]; ?></a>
         <div id="divIdUser" hidden><?php echo $_SESSION["idUser"]; ?></div> <!-- div para tener a mano el id del usuario para cuando haga falta en algún archivo javascript -->
         <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown" style="background-color: #ea2f82;">
+            
+            <p class="dropdown-item-text text-white"><i class="fas fa-coins"></i> <?php echo $_SESSION["creditosUser"]; ?> </p>
+            <div class="dropdown-divider"></div>
+
             <a class="dropdown-item btn-primary text-white" href="/perfil.php"><i class="fas fa-user"></i> Perfil</a>
             
             <!-- Si el usuario logeado es un admin -->
