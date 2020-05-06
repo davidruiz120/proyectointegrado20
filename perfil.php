@@ -11,7 +11,7 @@
     <link href="css/perfil.css" rel="stylesheet">
 
   <!-- Php encargado de actualizar los datos del usuario en la base de datos -->
-  <?php include("db/pActualizarPerfilUsuario.php"); ?>
+  <?php include("db/p/pActualizarPerfilUsuario.php"); ?>
 
 </head>
 
@@ -157,14 +157,14 @@
       <h4 class="font-weight-light">Añadir vehículo</h4>
       <hr>
 
-      <form action="../db/pAnyadirVehiculoPersonal.php" method="post" class="form-signin">
+      <form action="../db/p/pAnyadirVehiculoPersonal.php" method="post" class="form-signin">
               
         <div class="form-label-group"> <!-- Marca -->
             <label for="inputMarca">Marca</label>
             <select name="inputMarca" id="inputMarca" class="form-control" placeholder="Marca" required>
                 
                 <!-- Archivo encarcado de mostrar las diferentes marcas en el select -->
-                <?php include("db/pListarMarcasCoches.php") ?>
+                <?php include("db/p/pListarMarcasCoches.php") ?>
 
             </select>
         </div>

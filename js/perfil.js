@@ -15,7 +15,7 @@
             // Formato de datos que se espera en la respuesta
             dataType: "json",
             // URL a la que se enviará la solicitud Ajax
-            url: "../db/pObtenerVehiculosPersonales.php",
+            url: "../db/p/pObtenerVehiculosPersonales.php",
         })
         .done(function(data) {
 
@@ -60,7 +60,7 @@
                         // Formato de datos que se espera en la respuesta
                         dataType: "json",
                         // URL a la que se enviará la solicitud Ajax
-                        url: "db/pEliminarVehiculoPersonal.php",
+                        url: "db/p/pEliminarVehiculoPersonal.php",
                     })
                     .done(function(data) {
                         if(data.correcto){ // Si se ha eliminado correctamente
@@ -120,7 +120,7 @@
                 // Formato de datos que se espera en la respuesta
                 dataType: "json",
                 // URL a la que se enviará la solicitud Ajax
-                url: "../db/pListarModelosPorMarcaCoches.php",
+                url: "../db/p/pListarModelosPorMarcaCoches.php",
             })
             .done(function(data) {
                 $.each(data.modelos, function (key, value) {
@@ -152,7 +152,7 @@
                     // Formato de datos que se espera en la respuesta
                     dataType: "json",
                     // URL a la que se enviará la solicitud Ajax
-                    url: "../db/pDatosCochePorModelo.php",
+                    url: "../db/p/pDatosCochePorModelo.php",
                 })
                 .done(function(data) {
                     let datoscoche = data.datoscoche[0];
