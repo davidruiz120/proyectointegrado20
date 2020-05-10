@@ -1,6 +1,6 @@
 <?php
 
-require_once("Conexion.php");
+require_once("../Conexion.php");
 
 // Recogemos y guardamos en una variable el id del vehículo personal
 $idVPersonal=isset($_GET['idVPersonal'])?$_GET['idVPersonal']:$_POST['idVPersonal'];

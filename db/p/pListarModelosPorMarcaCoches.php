@@ -1,6 +1,6 @@
 <?php
 
-require_once("Conexion.php");
+require_once("../Conexion.php");
 
 $marca=isset($_GET['marca'])?$_GET['marca']:$_POST['marca'];
 

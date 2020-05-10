@@ -2,7 +2,7 @@
 
 if(isset($_REQUEST["btnAnyadirVehiculoPersonal"])){
     
-    require_once("Conexion.php");
+    require_once("../Conexion.php");
 
     // Conexión a la BBDD
     $con = new Conexion();
@@ -19,7 +19,7 @@ if(isset($_REQUEST["btnAnyadirVehiculoPersonal"])){
     $con->close();
 
     // Recargo la página para evitar un error que bloqueaba la manejabilidad de la web
-    header("Location: ../perfil.php");
+    header("Location: ../../perfil.php");
     exit;
 
 }

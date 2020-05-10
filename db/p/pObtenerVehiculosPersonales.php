@@ -1,6 +1,6 @@
 <?php
 
-require_once("Conexion.php");
+require_once("../Conexion.php");
 
 $idUsuarioLogin=isset($_GET['idUsuarioLogin'])?$_GET['idUsuarioLogin']:$_POST['idUsuarioLogin'];
 

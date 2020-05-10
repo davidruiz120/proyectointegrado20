@@ -1,6 +1,6 @@
 <?php
 
-require_once("Conexion.php");
+require_once("../Conexion.php");
 
 $modelo=isset($_GET['modelo'])?$_GET['modelo']:$_POST['modelo'];
 
