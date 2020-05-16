@@ -142,7 +142,7 @@
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
         
-      <form action="../db/sCrearSubasta.php" method="post" class="form-signin">
+      <form action="../db/s/sCrearSubasta.php" method="post" class="form-signin">
             
             <div class="form-label-group"> <!-- Marca -->
                 <label for="inputMarca">Marca</label>
