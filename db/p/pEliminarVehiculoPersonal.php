@@ -14,7 +14,7 @@ $sql = "DELETE FROM propiedades
         WHERE id = $idVPersonal";
 $resultado = $con->query($sql);
 
-if($con->affected_rows){ // Si se ha eliminado correctamente
+if($resultado){ // Si se ha eliminado correctamente
     $jsondata['correcto'] = true;
     echo json_encode($jsondata);
     $con->close();

@@ -71,7 +71,7 @@
                             // Creo un nuevo div para mostrar una información clara de que se ha ocurrido un error al eliminar el vehículo
                             let panelVehiculosPersonales = $("#panelVehiculosPersonales");
                             panelVehiculosPersonales.append("<div class='border-gradient-effect'>"+
-                            "<h3 class='my-4'>Error al eliminar el vehículo. Refresque la página.</h3>"+
+                            "<h5 class='my-4'><i class='fas fa-exclamation-circle' style='color: red;'></i> <b>Error</b> al eliminar el vehículo. Es posible que el <b>"+value.pMarca+" "+value.pModelo+"</b> esté en subasta. <b>Elimine primero la subasta</b> para poder eliminar este vehículo.</h5>"+
                             "</div>"+
                             "<br>");
                         }
