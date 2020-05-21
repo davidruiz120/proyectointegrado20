@@ -2,12 +2,14 @@
 // Sacar el nombre de las Marcas de los vehículos personales
 include("../db/Conexion.php");
 
+$idUser = $_SESSION["idUser"];
+
 $con = new Conexion();
 $con->set_charset("utf8");
 
 $sql = "SELECT DISTINCT coches.marca 
         FROM coches, propiedades 
-        WHERE coches.id = propiedades.p_id_coche 
+        WHERE coches.id = propiedades.p_id_coche && propiedades.p_id_usuario = $idUser 
         ORDER BY coches.marca ASC";
 $resultado = $con->query($sql);
 

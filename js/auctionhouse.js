@@ -412,8 +412,8 @@
             $("#btnComenzarSubasta").attr("disabled", "disabled");
 
             $.ajax({
-                // En data puedes utilizar un objeto JSON, un array o un query string
-                data: {marca: $(this).val()}, // Envío el nombre de la marca 
+                // Envío el nombre de la marca y el ID del usuario logueado
+                data: {marca: $(this).val(), idUser: $("#inputIdUsuarioLogin").val()}, 
                 //Cambiar a type: POST si necesario
                 type: "GET",
                 // Formato de datos que se espera en la respuesta

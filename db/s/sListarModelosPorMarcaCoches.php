@@ -3,7 +3,7 @@
 require_once("../Conexion.php");
 
 $marca=isset($_GET['marca'])?$_GET['marca']:$_POST['marca'];
-
+$idUser=isset($_GET['idUser'])?$_GET['idUser']:$_POST['idUser'];
 
 // Conexión a la BD
 $con = new Conexion();
@@ -11,7 +11,7 @@ $con->set_charset("utf8");
 
 $sql = "SELECT coches.modelo 
         FROM coches, propiedades 
-        WHERE marca = '$marca' && coches.id = propiedades.p_id_coche";
+        WHERE marca = '$marca' && coches.id = propiedades.p_id_coche && propiedades.p_id_usuario = $idUser";
 $resultado = $con->query($sql);
 
 
