@@ -86,6 +86,9 @@
                 
                 $("#"+idPujar).on("click",function(){ // Al hacer click en pujar en cualquier subasta, hago lo siguiente
 
+                    // Recogo los créditos del usuario en un div oculto cuando se hace click en Pujar
+                    var creditosUser = parseInt($("#creditosUserLogin").text());
+
                     let panelPujar = $("#panelPujar");
                     // Elimino todo lo que contenga el modal para prevenir algunos errores
                     panelPujar.children().remove(); 
@@ -95,7 +98,7 @@
                     panelPujar.append("<div>"+
                     "<h5 class='font-weight-light'>"+value.sAnyo+" | <b>"+value.sMarca+"</b> "+value.sModelo+" | "+value.sClase+"</h5>"+
                     "<hr>"+
-                    "<form action='../db/sPujarSubasta.php' method='post' class='form-signin'>"+
+                    "<form action='../db/s/sPujarSubasta.php' method='post' class='form-signin'>"+
                     "<input min='"+value.sValorInicial+"' type='number' name='modalInputValorInicial' id='modalInputValorInicial' class='form-control' required>"+
                     "<input value='"+value.sId+"' type='hidden' name='modalInputIdSubasta' id='modalInputIdSubasta'>"+
                     "<hr>"+
@@ -109,9 +112,10 @@
                     $("#modalInputValorInicial").on("change",function(){
                         // Al hacer un cambio en el input del valor de la puja, compruebo de que si vale lo mismo que el valor
                         // anterior, desactivo el botón, de lo contrario se activará. Esto sirve para que otro usuario no
-                        // pueda pujar con un mismo valor
+                        // pueda pujar con un mismo valor. A su vez, compruebo que el usuario solo pueda pujar con los créditos
+                        // que disponga
 
-                        if($(this).val() == value.sValorInicial){
+                        if($(this).val() == value.sValorInicial || parseInt($(this).val()) >= creditosUser){
                             $("#btnModalPujar").attr("disabled", "disabled");
                         } else {
                             $("#btnModalPujar").removeAttr("disabled");
