@@ -31,6 +31,7 @@
                 //console.log(value.sId);
 
                 var idPujar = "pujar"+value.sId; // Recojo el Id de la subasta, que me servirá para poder diferenciar entre ellas al pujar
+                var idComprar = "comprar"+value.sId; // Igual que en la variable de pujar, pero para 'comprar'
                 var idUsuarioLogin = $("#inputIdUsuarioLogin").val(); // Recojo el id del usuario logueado para la siguiente comprobación
 
                 if(idUsuarioLogin != value.sIdUsuario){ // Si la subasta la creó un usuario distinto al logueado, muestro la subasta pero con el botón de pujar habilitado
@@ -52,7 +53,7 @@
                     "<div class='col-md-4 text-center'>"+
                     "<h4 class='font-weight-light'><b>Comprar ya</b></h4>"+
                     "<h4 class='font-weight-light'><i class='fas fa-coins'></i> <b>"+value.sValorTotal+"</b></h4>"+
-                    "<div class='text-center'><button class='btn btn-primary btn-sm js-scroll-trigger' href='' disabled>Comprar ya</button></div>"+
+                    "<div class='text-center'><button id='"+idComprar+"' class='btn btn-primary btn-sm js-scroll-trigger' href='#modalComprar' data-toggle='modal'>Comprar ya</button></div>"+
                     "</div>"+
                     "</div>"+
                     "</div>"+
@@ -122,6 +123,40 @@
                         }
 
                     });
+
+                });
+
+                $("#"+idComprar).on("click",function(){ // Al hacer click en comprar en cualquier subasta, hago lo siguiente
+
+                    // Recogo los créditos del usuario en un div oculto cuando se hace click en Pujar
+                    var creditosUser = parseInt($("#creditosUserLogin").text());
+
+                    let panelComprar = $("#panelComprar");
+                    // Elimino todo lo que contenga el modal para prevenir algunos errores
+                    panelComprar.children().remove(); 
+
+                    // Muestro una interfaz para confirmar la compra
+                    // El formulario oculto enviará los datos a sComprarSubasta.php para realizar los cambios en la BBDD
+                    panelComprar.append("<div>"+
+                    "<h5 class='font-weight-light'>"+value.sAnyo+" | <b>"+value.sMarca+"</b> "+value.sModelo+" | "+value.sClase+"</h5>"+
+                    "<hr>"+
+                    "<h6 class='text-center'><i class='fas fa-exclamation-circle' style='color: orange;'></i> ¿Desea comprar ahora el vehículo? Recuerde que debe tener los créditos sufientes para comprarlo.</h6>"+
+                    "<form action='../db/s/sComprarSubasta.php' method='post' class='form-signin'>"+
+                    "<input value='"+value.sId+"' type='hidden' name='modalInputIdSubasta' id='modalInputIdSubasta'>"+
+                    "<input value='"+value.sIdCoche+"' type='hidden' name='modalInputIdCoche' id='modalInputIdCoche'>"+
+                    "<input value='"+value.sIdUsuario+"' type='hidden' name='modalInputIdUsuario' id='modalInputIdUsuario'>"+
+                    "<input value='"+idUsuarioLogin+"' type='hidden' name='modalInputIdUsuarioLogin' id='modalInputIdUsuarioLogin'>"+
+                    "<hr>"+
+                    "<button class='btn btn-sm btn-primary btn-block text-uppercase' id='btnModalComprar' name='btnModalComprar' type='submit'><i class='fas fa-coins'></i> Comprar</button>"+
+                    "</form>"+
+                    "</div>"+
+                    "<br>");
+
+                    if(parseInt($(this).val()) >= creditosUser){
+                        $("#btnModalComprar").attr("disabled", "disabled");
+                    } else {
+                        $("#btnModalComprar").removeAttr("disabled");
+                    }
 
                 });
 

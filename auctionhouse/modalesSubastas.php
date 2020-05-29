@@ -82,3 +82,30 @@
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+<!-- Modal Comprar -->
+<div class="modal fade" id="modalComprar">
+<div class="modal-dialog">
+    <div class="modal-content border-gradient">
+    <div class="modal-header bg-forza">
+        
+        <h3 class="modal-title text-white"><i class="fas fa-coins"></i> Compra rápida</h3>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true" onclick="location.reload();">×</button>
+    </div>
+    <div class="modal-body">
+
+        <div id="creditosUserLogin" style="display: none;"><?php echo $_SESSION["creditosUser"]; ?></div>
+
+        <div id="panelComprar">
+            <!-- Este panel de rellena en js/auctionhouse.js -->
+        </div>
+
+    </div>
+    <div class="modal-footer bg-forza">
+        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" onclick="location.reload();">Cerrar</button>
+    </div>
+            
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
